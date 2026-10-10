@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#EDE8F1">
+  <meta name="robots" content="noindex">
+  <title>Solicitar pedido | Los Combos de Lía</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%9C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="common.js"></script>
+</head>
+<body>
+
+  <div id="page-loader" class="page-loader" role="status" aria-live="polite">
+    <div class="loader-orb"><div class="loader-orb-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart" fill="url(#g-heart)"/></svg></div></div>
+    <p class="loader-brand">Los Combos de Lía</p>
+    <div class="loader-bar" aria-hidden="true"><span></span></div>
+    <span class="sr-only">Cargando…</span>
+  </div>
+
+  <header class="site-header">
+    <a class="btn btn-small" href="index.html"><span aria-hidden="true">←</span><span>Volver a los combos</span></a>
+    <span class="brand-mini">Los Combos de Lía</span>
+  </header>
+
+  <main class="order-main">
+    <section class="panel reveal">
+      <div class="order-top">
+        <h1>Tu solicitud</h1>
+        <div class="estimated-box"><small>Total estimado</small><strong id="estimated-price">$0.00</strong></div>
+      </div>
+
+      <ul id="summary-list" class="summary-list" aria-label="Combos seleccionados"></ul>
+
+      <form id="order-form" class="order-form" novalidate>
+        <div class="field" id="field-name">
+          <label for="receiver-name">Nombre de quien recibe</label>
+          <input id="receiver-name" type="text" maxlength="60" autocomplete="name" placeholder="Ej. María González" required aria-describedby="err-name">
+          <span id="err-name" class="field-error" role="alert"></span>
+        </div>
+        <div class="field" id="field-address">
+          <label for="address">Dirección de entrega</label>
+          <textarea id="address" rows="4" maxlength="250" autocomplete="street-address" placeholder="Calle, número, sector, referencias…" required aria-describedby="err-address"></textarea>
+          <span id="err-address" class="field-error" role="alert"></span>
+        </div>
+        <button id="submit-btn" class="btn btn-primary btn-block" type="submit">
+          <svg class="btn-heart" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart" fill="currentColor"/></svg>
+          <span>Solicitar por WhatsApp</span>
+        </button>
+        <p class="form-note">Se abrirá WhatsApp con el resumen del pedido listo para enviar a la administradora.</p>
+      </form>
+    </section>
+  </main>
+
+  <script src="../config/env.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
+  <script src="script.js"></script>
+</body>
+</html>

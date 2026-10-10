@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#EDE8F1">
+  <title>Los Combos de Lía | Combos disponibles</title>
+  <meta name="description" content="Consulta los combos disponibles de Los Combos de Lía, agrégalos al carrito y solicita tu pedido por WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Los Combos de Lía">
+  <meta property="og:description" content="Consulta los combos disponibles y solicita tu pedido por WhatsApp.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%9C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="common.js"></script>
+</head>
+<body>
+
+  <!-- Loading screen -->
+  <div id="page-loader" class="page-loader" role="status" aria-live="polite">
+    <div class="loader-orb"><div class="loader-orb-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart" fill="url(#g-heart)"/></svg></div></div>
+    <p class="loader-brand">Los Combos de Lía</p>
+    <div class="loader-bar" aria-hidden="true"><span></span></div>
+    <span class="sr-only">Cargando…</span>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Los Combos de Lía">
+      <span class="brand-mark" aria-hidden="true">L</span>
+      <span><strong>Los Combos</strong><small>de Lía</small></span>
+    </a>
+    <button id="cart-btn" class="cart-btn" type="button" aria-label="Abrir carrito" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 7H6"/></svg>
+      <span id="cart-count" class="cart-count" hidden>0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="aurora a1"></span><span class="aurora a2"></span><span class="aurora a3"></span><span class="aurora a4"></span>
+        <svg class="hero-heart" viewBox="0 0 24 24" focusable="false">
+          <defs>
+            <linearGradient id="hh-fill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4B8D3"/><stop offset=".55" stop-color="#C9B6F0"/><stop offset="1" stop-color="#A9C4F2"/></linearGradient>
+            <radialGradient id="hh-shine" cx=".32" cy=".28" r=".55"><stop offset="0" stop-color="#FFF6FB" stop-opacity=".7"/><stop offset="1" stop-color="#FFF6FB" stop-opacity="0"/></radialGradient>
+          </defs>
+          <path fill="url(#hh-fill)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          <path fill="url(#hh-shine)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <div class="magic-field" id="magic-field"></div>
+      </div>
+
+      <div class="hero-copy">
+        <h1>Los Combos<br>de Lía</h1>
+        <p class="lead">Selecciona las opciones que más te gusten, agrégalas al carrito y solicita tu pedido de manera rápida, clara y sencilla.</p>
+        <a class="btn btn-primary" href="#combos"><span>Ver el menú</span><span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="intro reveal">
+      <div class="panel">
+        <h2>Elige tus combos favoritos.</h2>
+        <p>Toca una tarjeta para agregarla al carrito. Si la tocas dos veces, ordenas doble.</p>
+      </div>
+    </section>
+
+    <section id="combos" class="section catalog">
+      <div class="section-heading reveal">
+        <h2>Combos disponibles</h2>
+      </div>
+
+      <div id="loading" class="status-card">
+        <svg class="mini-heart" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart" fill="url(#g-heart)"/></svg>
+        <h3>Cargando combos ♡</h3>
+      </div>
+
+      <div id="combo-grid" class="catalog-list is-hidden" aria-live="polite"></div>
+
+      <div id="empty-state" class="status-card is-hidden">
+        <svg class="status-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart" fill="url(#g-heart)"/></svg>
+        <h3>Aún no hay combos publicados</h3>
+        <p>Cuando se agreguen opciones desde el panel de administración, aparecerán aquí.</p>
+      </div>
+
+      <div id="error-state" class="status-card is-hidden">
+        <svg class="status-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart" fill="url(#g-heart)"/></svg>
+        <h3>No pudimos cargar los combos</h3>
+        <p>Revisa tu conexión e inténtalo de nuevo.</p>
+        <button id="retry-btn" class="btn btn-primary btn-small" type="button">Reintentar</button>
+      </div>
+
+      <div id="config-state" class="status-card is-hidden">
+        <svg class="status-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart" fill="url(#g-heart)"/></svg>
+        <h3>Falta conectar la base de datos</h3>
+        <p>Agrega SUPABASE_URL y SUPABASE_KEY en config/env.js.</p>
+      </div>
+    </section>
+
+    <section class="how reveal">
+      <div class="how-inner">
+        <h2><span>Escoge.</span><span>Completa.</span><span>Solicita.</span></h2>
+        <ol>
+          <li><span class="num" aria-hidden="true">1</span><p>Toca la tarjeta del combo que quieres: cada toque lo agrega al carrito.</p></li>
+          <li><span class="num" aria-hidden="true">2</span><p>Abre el carrito para revisar tu selección y el total.</p></li>
+          <li><span class="num" aria-hidden="true">3</span><p>Presiona Ordenar, completa nombre y dirección y envía la solicitud por WhatsApp.</p></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Los Combos de Lía</p>
+    <p>Opciones seleccionadas y entregadas con seguridad ♡</p>
+  </footer>
+
+  <!-- Botón Ordenar: solo aparece cuando se ha agregado algo -->
+  <button id="order-btn" class="btn btn-primary order-fab" type="button" inert>
+    <svg class="btn-heart" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart" fill="currentColor"/></svg>
+    <span>Ordenar</span>
+  </button>
+
+  <!-- Modal del carrito -->
+  <div id="cart-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+    <div class="modal">
+      <div class="modal-head">
+        <h2 id="cart-title">Tu carrito</h2>
+        <button id="cart-close" class="modal-close" type="button" aria-label="Cerrar carrito">×</button>
+      </div>
+      <ul id="cart-items" class="cart-items"></ul>
+      <div id="cart-empty" class="cart-empty is-hidden">Tu carrito está vacío. Toca una tarjeta para agregar un combo ♡</div>
+      <div class="cart-total"><span>Total</span><strong id="cart-total">$0.00</strong></div>
+      <div id="cart-clear-row" class="cart-clear-row"><button id="cart-clear" class="link-btn" type="button">Vaciar carrito</button></div>
+      <div class="modal-actions">
+        <button id="cart-continue" class="btn" type="button">Seguir comprando</button>
+        <button id="cart-order" class="btn btn-primary" type="button">
+          <svg class="btn-heart" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart" fill="currentColor"/></svg>
+          <span>Ordenar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../config/env.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
+  <script src="script.js"></script>
+</body>
+</html>
