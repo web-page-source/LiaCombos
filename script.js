@@ -391,8 +391,8 @@
       const number = ADMIN_WHATSAPP.replace(/\D/g, "");
       if (!number || ADMIN_WHATSAPP.includes("TU_NUMERO")) { toast("El WhatsApp de la tienda aún no está configurado", "error", 4000, { key: "wa" }); return; }
 
-      const items = lines.map(l => `🍽️ ${l.qty} × ${l.combo.nombre} — ${money((Number(l.combo.precio) || 0) * l.qty)}`).join("\n");
-      const message = `Hola, Lía. Quiero solicitar este combo:\n\n${items}\n\nTotal: ${money(total)}\nNombre de quien recibe: ${result.name}\nDirección: ${result.address}\n\nQuedo pendiente de la confirmación. ¡Gracias!`;
+      const items = lines.map(l => `${l.qty} × ${l.combo.nombre} — ${money((Number(l.combo.precio) || 0) * l.qty)}`).join("\n");
+      const message = `Hola, Lía. Quisiera hacer este pedido:\n\n${items}\n\nTotal: ${money(total)}\nNombre de quien recibe: ${result.name}\nDirección: ${result.address}\n\nQuedo pendiente de la confirmación. ¡Gracias!`;
       window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
       toast("Abriendo WhatsApp con tu solicitud ♡", "success", 3500, { key: "wa" });
 
